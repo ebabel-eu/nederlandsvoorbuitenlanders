@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" > 
+<html>
+<head>
+<title>
+Nederlands voor buitenlanders - Les 42 Oefening B
+</title>
+
+<link rel="stylesheet" href="../stijlNVB.css" type="text/css"/>
+
+
+
+<script language="JavaScript" type="text/javascript" src="../javascript/algemeen.js" > 
+</script>
+<script language="JavaScript" type="text/javascript" src="../javascript/multiling.js" > 
+</script>
+<script language="JavaScript" type="text/javascript" src="../javascript/ex42b.js" >
+</script>
+
+
+<body onload="setLanguage(), setIntroText(), alertSize()">
+
+	<div id="container">
+		
+		<div id="knoppenVeld">
+		
+			<div id="startschermbutton">
+				<form action="../startscherm.html" method="GET">
+					<input class="btn" id="btnStartscherm" type="submit" title="Terug naar het startscherm" value="startscherm" />
+				</form>
+			</div><!--startschermbutton -->	
+			
+			<div id="vorigeoefbutton">
+				<form name="vorigeOef" action="../oefeningen/oef42a.html" method="post">
+					<input class="btn" id="btnVorige" type="submit" title="Vorige oefening" value="vorige oefening" />
+				</form>
+			</div><!--vorigeoefbutton -->
+
+			<div id="volgendeoefbutton">
+				<form name="volgendeOef" action="../oefeningen/oef43a.html" method="post">
+					<input class="btn" id="btnVolgende" type="submit" title="Volgende oefening" value="volgende oefening" />
+				</form>
+			</div><!--volgendoefbutton -->
+
+			<div id="stopbutton">
+					<input class="btn" id="btnStop" type="submit" title="Stoppen" onclick="stopNVB()" value="stop" />
+			</div><!--stopbutton -->
+		</div><!-- knoppenVeld -->
+	
+
+	<div id="inleiding"> 
+		<div id="inleidendeTekst" style="width: 500px;"></div>
+        <div id="inleidingPlaatje" style="width: 50px;"></div>
+		<div id="startKnop">
+			<form name="dialoguestartbutton" onsubmit="return startDialogue()">
+				<input type="submit" value="start" >
+			</form> 
+		</div><!-- startKnop -->
+ 
+	</div><!--inleiding-->
+
+	<form name="dialogueform" onsubmit="return continueDialogue()">
+		<div id="vraagVeld">
+			<div id="vraagTekst" class="kop">
+				<p>Vraag:</p>
+			</div><!-- vraagTekst -->	
+	
+			<div id="vraagTextArea">
+				<textarea name="system" readonly id="devraag" cols=103 rows=2></textarea>
+			</div><!--vraagTextArea -->
+		</div><!-- vraagVeld -->
+
+		<div id="woordenVeld">
+			<div id="woordenTekst" class="kop">
+				<p>Kies uit deze woorden:</p>
+			</div><!--woordenTekst -->
+			<div id="woordenTextArea">
+				<textarea name="wordlist"  readonly id="dewoorden" cols=103 rows=2></textarea>
+			</div><!--woordenTextArea -->
+			<div id="diacritischeTekens">
+				<A id="diacritics" HREF="#" onclick="return lettereAcute()">&eacute;</A>&nbsp;
+				<A id="diacritics" HREF="#" onclick="return lettereGrave()">&egrave;</A>&nbsp;
+				<A id="diacritics" HREF="#" onclick="return lettereTrema()">&euml;</A>&nbsp;
+				<A id="diacritics" HREF="#" onclick="return lettereKapje()">&ecirc;</A>&nbsp;
+				<A id="diacritics" HREF="#" onclick="return letteraGrave()">&agrave;</A> &nbsp;
+				<A id="diacritics" HREF="#" onclick="return letteriTrema()">&iuml;</A>&nbsp;
+				<A id="diacritics" HREF="#" onclick="return apostrof()">&#39;</A>&nbsp;
+			</div><!-- diacritischeTekens -->
+		</div><!-- woordenVeld -->
+	
+		<div id="antwoordVeld">
+			<div id="antwoordTekst" class="kop">
+				<p>Antwoord:</p>
+			</div><!--antwoordTekst -->
+			<div id="antwoordTextArea">
+				<input name="user" type="text" id="hetantwoord" size="101"  >
+			</div><!-- antwoordTextArea --> 
+			<div id="enterKnop">
+				<input WIDTH="8" id="knopEtr" type="submit" value="enter" >
+			</div><!-- enterKnop -->
+		</div><!--antwoordVeld -->
+
+		<div id="feedbackVeld">
+			<div id="feedbackTekst" class="kop">
+				<p>Feedback:</p>
+			</div><!-- feedbackTekst -->
+			<div id="feedbackTextArea">
+				<textarea name="systeminfo"  readonly id="defeedback" cols=103 rows=7></textarea>
+			</div><!-- feedbackTextArea --> 
+		</div> <!-- feedbackVeld" -->
+	</form>
+
+	<form name="resultatenform">
+		<div id="resultatenVeld">
+			<div id="resultatenTekst" class="kop">
+				<p>Resultaten:</p>
+			</div><!-- resultatenTekst -->
+			<div id="resultatenTextArea">	
+				<textarea name="resultform" id="deresultaten" readonly  cols=80 rows=16></textarea> 
+			</div><!--resultatenTextArea -->
+		</div><!-- resultatenVeld --> 
+	</form>
+
+	</div>
+</body> 
+</html>
+

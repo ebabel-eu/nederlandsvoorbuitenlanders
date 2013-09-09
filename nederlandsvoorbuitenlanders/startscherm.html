@@ -1,0 +1,602 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+    	Groene Oefenboek
+    </title>
+    
+    
+    				<!-- ################ CSS ################## -->
+    
+    
+    <style type="text/css">
+
+	html {
+		background-color: rgb(12, 72, 0);
+	}
+
+	body{
+    	overflow-y: auto;		/* laat verticale scrollbars verdwijnen als die er zijn */
+    	margin: 0;
+		padding: 0;
+		font-family: Arial, Georgia, serif;
+		font-size: 100%;
+		color: white;			/* beinvloed niet de tekst van de textareas */
+	}
+
+	#container {
+		/* De container bevat de dialoogtrainer zelf. Deze hangt aan de bovenkant van het scherm 
+		en zweeft in het midden */
+	
+		background: url(pics/NVB-dialoogtrainer-startscherm.jpg) no-repeat;
+		position: absolute; 		
+		left: 50%; 
+		height: 700px;
+		width: 900px;  
+		margin-left: -450px; 		/* -((width/2) + left padding) = -((860/2) + 15) = -445 */
+		/*padding: 0 15px 0 15px;*/  
+	}
+	
+	#randeromheen {
+		/* Deze div is onzichtbaar. Hij zorgt ervoor dat de mouseOver
+		voor de tabel werkt: de oefeningen en de les raken hun highlight kwijt als de muis erover komt */
+	
+		/* positie: precies om de tabel met lessen */
+	
+		position: absolute;
+		top: -20px;
+		left: 110px;
+		width: 550px;
+		height: 370px;
+		/*border: 1px solid red;*/
+		z-index: 0;
+	}
+	
+	#tabellen {
+		/* de container die beide tabellen bevat */
+		/*position: relative;
+		float: left;
+    	margin-left: 100px;
+    	width: 750px;
+   		top: 224px;
+		*top: 222px;*/
+		position: absolute;
+		top: 222px;
+		left: 115px;
+	}
+
+	#tabelTalenContainer {
+		/* container die de talentabel bevat */
+		position: relative;
+		float: left;
+		width: 107px;
+		border: 1px solid white;
+		height: 329px;
+	}
+	
+	#tabelTalen {
+		/* talentabel */
+		border-spacing: 0;
+		border-collapse: collapse;
+		*border-top: 0px solid transparent;
+		*border-bottom: 0px solid transparent;
+		*border-left: 0px solid transparent;
+		*border-right: 0px solid transparent;
+		*position: relative;
+		*border-color: pink;
+		*filter: chroma(color=pink);
+	}
+
+	#tabelTalen td {
+		padding: 0.18em 0.5em 0.18em 0.5em;
+		width: 105px;
+	}
+
+	#tabelTalen td#taal1{
+		/* de cel van Nederlands is standaard gehighlight */
+		background-color: rgb(0, 107, 51);
+	}
+
+	#tabelTalen tr.onzichtbaar {
+		/* onderaan de tabel zitten een aantal onzichtbare cellen ter opvulling. */
+		padding: 0.1em 1em 0.1em 0.2em;
+		visibility: hidden;
+	}
+
+	#tabelTalen td:hover {
+		background-color: rgb(0, 107, 51);
+	}
+	
+	a {
+		/* hyperlinks: de tekst in de tabellen */
+		color: white;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 0.85em;
+	}
+	
+	#tabelOefsContainer{
+		/* container van de tabel met oefeningen */
+		position: absolute;
+		top: 150px;
+		left: 240px;
+		/*border: 1px solid black;*/
+		margin-left: 10px;
+		visibility: hidden;
+		/*background-color: rgb(0, 107, 51);*/
+		z-index: 2;
+	}
+	
+	#tabelOefs a{
+		font-weight: normal;
+	}
+	
+	#tabelOefs {
+		/* tabellen met lessen en oefeningen. De regels met een * zijn speciaal voor IE. */
+		border-spacing: 0;
+		border-collapse: collapse;
+		*border-top: 0px solid transparent;
+		*border-bottom: 0px solid transparent;
+		*border-left: 0px solid transparent;
+		*border-right: 0px solid transparent;
+		*position: relative;
+		*border-color: pink;
+		*filter: chroma(color=pink);
+	}
+	
+	#tabelOefs td{
+		padding: 0.18em 0.5em 0.18em 0.5em;
+		width: 70px;
+		*width: 84px;
+	}
+	
+	#tabelLessenContainer {
+		/* container van de tabel met lessen */
+		position: relative;
+		float: left;
+		border: 1px solid white;
+		margin-left: 23px;
+		*margin-left: 24px;
+		width: 148px;
+		*width: 149px;
+		height: 329px;
+	}
+	
+	#tabelLessen {
+		/* tabel met lessen. De regels met een * zijn speciaal voor IE. */
+		border-spacing: 0;
+		border-collapse: collapse;
+		*border-top: 0px solid transparent;
+		*border-bottom: 0px solid transparent;
+		*border-left: 0px solid transparent;
+		*border-right: 0px solid transparent;
+		*position: relative;
+		*border-color: pink;
+		*filter: chroma(color=pink);
+	}
+
+	#tabelLessenContainer2 {
+		/* container van de tabel met lessen 16-30 */
+		position: relative;
+		float: left;
+		border: 1px solid white;
+		margin-left: 23px;
+		*margin-left: 24px;
+		width: 148px;
+		*width: 149px;
+		height: 329px;
+	}
+	
+	#tabelLessen2 {
+		/* tabel met lessen. De regels met een * zijn speciaal voor IE. */
+		border-spacing: 0;
+		border-collapse: collapse;
+		*border-top: 0px solid transparent;
+		*border-bottom: 0px solid transparent;
+		*border-left: 0px solid transparent;
+		*border-right: 0px solid transparent;
+		*position: relative;
+		*border-color: pink;
+		*filter: chroma(color=pink);
+	}
+	
+	#tabelLessen td, #tabelLessen2 td, #tabelLessen3 td {
+		padding: 0.17em 0.5em 0.17em 0.5em;
+		width: 70px;
+	}
+/*	
+	#tabelLessen2 td {
+		padding: 0.18em 0.5em 0.18em 0.5em;
+		width: 70px;
+	}
+	
+	#tabelLessen3 td {
+		padding: 0.18em 0.5em 0.18em 0.5em;
+		width: 70px;
+	}
+*/
+	#tabelLessenContainer3 {
+		/* container van de tabel met lessen 31-43 */
+		position: relative;
+		float: left;
+		border: 1px solid white;
+		margin-left: 23px;
+		*margin-left: 24px;
+		width: 148px;
+		*width: 149px;
+		height: 329px;
+	}
+	
+	#tabelLessen3 {
+		/* tabel met lessen. De regels met een * zijn speciaal voor IE. */
+		border-spacing: 0;
+		border-collapse: collapse;
+		*border-top: 0px solid transparent;
+		*border-bottom: 0px solid transparent;
+		*border-left: 0px solid transparent;
+		*border-right: 0px solid transparent;
+		*position: relative;
+		*border-color: pink;
+		*filter: chroma(color=pink);
+	}
+	
+	#tabelLessen3 td.onzichtbaar {
+		visibility: hidden;
+	}
+
+	#tabelLessen3.onzichtbaar td:hover {
+		background-color: rgb(255, 102, 0);
+	}
+	
+	 </style>
+
+				
+				
+				
+				<!-- ################ Javascript ################## -->
+
+
+
+	<script language="JavaScript" type="text/javascript" src="javascript/algemeen.js" ></script>
+	<script language="JavaScript" type="text/javascript">
+	
+	var cellHeight=21;			/* celhoogte van de tabel met oefeningen */
+	var oefening=0;
+	var dezeLes=-1;
+	var noOefsActive=true;
+	var taal=1; /* nederlands */
+
+	function andereTaal(control) {
+		
+		/* wordt aangeroepen als gebruiker een andere taal selecteert. De juiste taal krijgt
+		een witte achtergrond en de variabele 'taal' krijgt een andere waarde */
+		
+		taal=control;
+		for(var t = 0; t < 6; t++){
+			var p = "taal"+t;
+			if(t == control){document.getElementById(p).style.background = "rgb(0, 107, 51)";}
+			else{document.getElementById(p).style.background = "transparent";}
+		}
+		
+	}
+
+	
+	function lestabelin(les){
+			
+			/* er word over een nieuwe les gescrold. 
+			Maak de oude les transparant en de nieuwe blauw */
+
+			if(dezeLes!=-1){
+				var oud="les"+dezeLes;
+				document.getElementById(oud).style.background = "transparent";
+			};
+			dezeLes=les;
+			var r="les"+dezeLes;
+			document.getElementById(r).style.background = "rgb(0, 107, 51)";
+
+			/* maak de juiste oefeningen zichtbaar, in een aantal stappen */
+			
+			/* maak alle oefa-b-c-d die eventueel nog zichtbaar zijn eerst onzichtbaar */
+			document.getElementById('tabelOefsContainer').style.visibility='hidden';
+			
+			var thisLes = "les"+les;
+			var yPos = getY(document.getElementById(thisLes));
+			/*var xPos = getX(document.getElementById(thisLes));*/
+			/*xPos -= 45;*/ /* 135 */
+			
+			/* vaste positie voor xPos, anders werkt het niet bij inzoomen venster */
+			var xPos = 299;
+			if((les > 15) && (les < 31)){xPos = 473;}
+			if(les >= 31){xPos = 646;}
+			
+			yPos += 1;
+			document.getElementById('tabelOefsContainer').style.top = yPos;
+			document.getElementById('tabelOefsContainer').style.left = xPos;
+			/* maak de juiste oefa-b zichtbaar */
+			/* zet de (onzichtbare) oefeningen weer goed */
+			for(var x = 1; x < 3; x++){
+				var p = "oef"+x;
+				document.getElementById(p).style.display = "";
+					//document.getElementById(p).innerHTML = "";
+			}
+			//document.getElementById('oef1').innerHTML="<a href=\"oefeningen/oef"+les+"a.html?"+taal+"\" onclick=\"return !window.open(this.href,'','width=900,height=700');\" target=\"_blank\">oefening A</a>";
+			document.getElementById('oef1').innerHTML="<a href=\"oefeningen/oef"+les+"a.html?"+taal+"\" target=\"_self\">oefening A</a>";
+			document.getElementById('oef2').innerHTML="<a href=\"oefeningen/oef"+les+"b.html?"+taal+"\" target=\"_self\">oefening B</a>";
+			//document.getElementById('oef2').innerHTML="<a href=\"oefeningen/oef"+les+"b.html?"+taal+"\" onclick=\"return !window.open(this.href,'','width=900,height=700');\" target=\"_blank\">oefening B</a>";
+			
+			for(var x = 1; x < 3; x++){
+				var p = "oef"+x;
+				document.getElementById(p).style.background = 'rgb(0, 107, 51)';
+			} 
+			
+			//document.getElementById(t).style.borderBottom = "1px solid black";
+			//document.getElementById('oef1').style.borderTop = "1px solid black";
+			document.getElementById('tabelOefsContainer').style.visibility='visible';
+		}
+
+
+		function oeftabelin(oef){
+			/* wordt aangeroepen bij mouseover in de 'oefs' rij in de tabel */
+			
+            noOefsActive=false;
+    
+            /* houd cel met les links van deze cel gehighlight. 
+               als dezeLes=-1 mag dit niet gebeuren: de gebruiker komt dan
+               de allereerste keer vanaf de rechterkant de lessentabel in
+               zonder eerst over een les te zijn gegaan met de muis: dezeLes 
+               staat dan nog op -1. */
+
+               if(dezeLes!=-1){
+               		var t = "les"+dezeLes;
+					var oefening = "oef"+oef;
+					document.getElementById(oefening).style.background = "rgb(255, 102, 0)";
+               }
+        }
+	
+		function oeftabeluit(oef){
+			var oefening = "oef"+oef;
+			document.getElementById(oefening).style.background = "rgb(0, 107, 51)";
+		}
+	
+		function vertraag(){
+		
+			/* deze functie zorgt ervoor dat de functie 'vertraagX' met lichte vertraging
+			gestart wordt. Dit maakt het mogelijk dat de mouseover goed werkt. */
+			
+			setTimeout('vertraagX(1)', 5 );
+		}
+
+		function vertraagX(tabel){
+			if(noOefsActive){
+				verberg();
+			}
+		}
+
+		function verberg(){
+			for(var x = 1; x < 44; x++){
+				var temp="les"+x;
+				document.getElementById(temp).style.background = "transparent";
+			}
+			document.getElementById('tabelOefsContainer').style.visibility='hidden';
+			
+			
+		}
+		
+		/* functie om de y-positie van de lestabel-td te bepalen */
+		function getY(obj){
+			return( obj.offsetParent==null ? obj.offsetTop : obj.offsetTop+getY(obj.offsetParent) );
+		}
+
+		/* functie om de x-positie van de lestabel-td te bepalen */
+		function getX(obj){
+			return( obj.offsetParent==null ? obj.offsetLeft : obj.offsetLeft+getX(obj.offsetParent) );
+		}
+	
+	</script>
+</head>
+
+
+					<!-- ################ html ################## -->
+
+
+<body onload="alertSize()">
+
+	<div id="container">
+
+		<div id="info" style="position: absolute; top: 640px; left: 680px; *left: 640px; height: 10px;">
+            <p style="font-size: 0.7em; margin: 0px; padding: 0px; line-height: 1em;">&copy; Uitgeverij Boom, 2009 </p>
+		</div>
+		<div id="info2" style="position: absolute; top: 655px; left: 680px; *left: 640px; height: 10px;">
+            <p style="font-size: 0.7em; margin: 0px; padding: 0px; line-height: 1em;"> &copy; (software) Landsbergen Talen, 2009 </p>
+        </div>	
+		
+		<div id="tabelOefsContainer">
+			<table id="tabelOefs">
+				<tr><td id="oef1" class="oefs" onMouseOver="noOefsActive=false, oeftabelin(1)" onMouseOut="oeftabeluit(1), noOefsActive=true, vertraag()"></td></tr>
+				<tr><td id="oef2" class="oefs" onMouseOver="noOefsActive=false, oeftabelin(2)" onMouseOut="oeftabeluit(2), noOefsActive=true, vertraag()"></td></tr>
+			</table>
+		</div>
+		
+		
+		
+		<div id="tabellen">
+		
+		<div id="randeromheen" onMouseOver="verberg()"></div>
+
+			<div id="tabelTalenContainer">
+				<table id="tabelTalen" onMouseOver="verberg()">
+					<tr><td id="taal1"><a href="#" onclick="andereTaal(1)">Nederlands</a></td></tr>
+					<tr><td id="taal0"><a href="#" onclick="andereTaal(0)">English</a></td></tr>
+					<tr><td id="taal5"><a href="#" onclick="andereTaal(5)">Español</a></td></tr>
+					<tr><td id="taal2"><a href="#" onclick="andereTaal(2)">Français</a></td></tr>
+					<tr><td id="taal4"><a href="#" onclick="andereTaal(4)">Türkçe</a></td></tr>
+					<tr><td id="taal3"><a href="#" onclick="andereTaal(3)">العربية</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+					<tr class="onzichtbaar"><td><a>pulp</a></td></tr>
+				
+				</table>	
+			</div>
+
+			<div id="tabelLessenContainer">
+				<table id="tabelLessen">
+					<tr>
+						<td id="les1" onMouseOver="lestabelin(1)"><a>Les 1</a></td>					
+					</tr>
+					<tr>
+						<td id="les2" onMouseOver="lestabelin(2)"><a>Les 2</a></td>
+					</tr>
+					<tr>
+						<td id="les3" onMouseOver="lestabelin(3)"><a>Les 3</a></td>
+					</tr>
+					<tr>
+						<td id="les4" onMouseOver="lestabelin(4)"><a>Les 4</a></td>
+					</tr>
+					<tr>
+						<td id="les5" onMouseOver="lestabelin(5)"><a>Les 5</a></td>
+					</tr>
+					<tr>
+						<td id="les6" onMouseOver="lestabelin(6)"><a>Les 6</a></td>
+					</tr>
+					<tr>
+						<td id="les7" onMouseOver="lestabelin(7)"><a>Les 7</a></td>
+					</tr>
+					<tr>
+						<td id="les8" onMouseOver="lestabelin(8)"><a>Les 8</a></td>
+					</tr>
+					<tr>
+						<td id="les9" onMouseOver="lestabelin(9)"><a>Les 9</a></td>
+					</tr>
+					<tr>
+						<td id="les10" onMouseOver="lestabelin(10)"><a>Les 10</a></td>
+					</tr>
+					<tr>
+						<td id="les11" onMouseOver="lestabelin(11)"><a>Les 11</a></td>
+					</tr>
+					<tr>
+						<td id="les12" onMouseOver="lestabelin(12)"><a>Les 12</a></td>
+					</tr>
+					<tr>
+						<td id="les13" onMouseOver="lestabelin(13)"><a>Les 13</a></td>
+					</tr>
+					<tr>
+						<td id="les14" onMouseOver="lestabelin(14)"><a>Les 14</a></td>
+					</tr>
+					<tr>
+						<td id="les15" onMouseOver="lestabelin(15)"><a>Les 15</a></td>
+					</tr>
+				</table>	
+			</div>
+			
+			<div id="tabelLessenContainer2">
+				<table id="tabelLessen2">
+					<tr>
+						<td id="les16" onMouseOver="lestabelin(16)"><a>Les 16</a></td>					
+					</tr>
+					<tr>
+						<td id="les17" onMouseOver="lestabelin(17)"><a>Les 17</a></td>
+					</tr>
+					<tr>
+						<td id="les18" onMouseOver="lestabelin(18)"><a>Les 18</a></td>
+					</tr>
+					<tr>
+						<td id="les19" onMouseOver="lestabelin(19)"><a>Les 19</a></td>
+					</tr>
+					<tr>
+						<td id="les20" onMouseOver="lestabelin(20)"><a>Les 20</a></td>
+					</tr>
+					<tr>
+						<td id="les21" onMouseOver="lestabelin(21)"><a>Les 21</a></td>
+					</tr>
+					<tr>
+						<td id="les22" onMouseOver="lestabelin(22)"><a>Les 22</a></td>
+					</tr>
+					<tr>
+						<td id="les23" onMouseOver="lestabelin(23)"><a>Les 23</a></td>
+					</tr>
+					<tr>
+						<td id="les24" onMouseOver="lestabelin(24)"><a>Les 24</a></td>
+					</tr>
+					<tr>
+						<td id="les25" onMouseOver="lestabelin(25)"><a>Les 25</a></td>
+					</tr>
+					<tr>
+						<td id="les26" onMouseOver="lestabelin(26)"><a>Les 26</a></td>
+					</tr>
+					<tr>
+						<td id="les27" onMouseOver="lestabelin(27)"><a>Les 27</a></td>
+					</tr>
+					<tr>
+						<td id="les28" onMouseOver="lestabelin(28)"><a>Les 28</a></td>
+					</tr>
+					<tr>
+						<td id="les29" onMouseOver="lestabelin(29)"><a>Les 29</a></td>
+					</tr>
+					<tr>
+						<td id="les30" onMouseOver="lestabelin(30)"><a>Les 30</a></td>
+					</tr>
+				</table>	
+			</div>
+			
+			<div id="tabelLessenContainer3">
+				<table id="tabelLessen3">
+					<tr>
+						<td id="les31" onMouseOver="lestabelin(31)"><a>Les 31</a></td>					
+					</tr>
+					<tr>
+						<td id="les32" onMouseOver="lestabelin(32)"><a>Les 32</a></td>
+					</tr>
+					<tr>
+						<td id="les33" onMouseOver="lestabelin(33)"><a>Les 33</a></td>
+					</tr>
+					<tr>
+						<td id="les34" onMouseOver="lestabelin(34)"><a>Les 34</a></td>
+					</tr>
+					<tr>
+						<td id="les35" onMouseOver="lestabelin(35)"><a>Les 35</a></td>
+					</tr>
+					<tr>
+						<td id="les36" onMouseOver="lestabelin(36)"><a>Les 36</a></td>
+					</tr>
+					<tr>
+						<td id="les37" onMouseOver="lestabelin(37)"><a>Les 37</a></td>
+					</tr>
+					<tr>
+						<td id="les38" onMouseOver="lestabelin(38)"><a>Les 38</a></td>
+					</tr>
+					<tr>
+						<td id="les39" onMouseOver="lestabelin(39)"><a>Les 39</a></td>
+					</tr>
+					<tr>
+						<td id="les40" onMouseOver="lestabelin(40)"><a>Les 40</a></td>
+					</tr>
+					<tr>
+						<td id="les41" onMouseOver="lestabelin(41)"><a>Les 41</a></td>
+					</tr>
+					<tr>
+						<td id="les42" onMouseOver="lestabelin(42)"><a>Les 42</a></td>
+					</tr>
+					<tr>
+						<td id="les43" onMouseOver="lestabelin(43)"><a>Les 43</a></td>
+					</tr>
+					<tr>
+						<td id="les44" onMouseOver="lestabelin(44)" class="onzichtbaar"><a>Les 44</a></td>
+					</tr>
+					<tr>
+						<td id="les45" onMouseOver="lestabelin(45)" class="onzichtbaar"><a>Les 45</a></td>
+					</tr>
+				</table>	
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+</html>

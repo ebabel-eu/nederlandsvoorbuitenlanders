@@ -1,0 +1,345 @@
+html {
+	background-color: rgb(12, 72, 0);
+}
+
+body{
+   	overflow-y: auto;		/* laat verticale scrollbars verdwijnen als die er zijn */
+   	margin: 0;
+	padding: 0;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;			/* beinvloed niet de tekst van de textareas */
+}
+	
+#container {
+	/* De container bevat de dialoogtrainer zelf. Deze hangt aan de bovenkant van het scherm 
+	en zweeft in het midden */
+	/*background-size: 500px;*/
+	background: url(pics/NVB-dialoogtrainer-oefeningen+vlak.jpg) no-repeat;
+	/*background: url(pics/druppelblauw.jpg) no-repeat;*/
+	/*border: 1px solid black;*/
+	/*background-position: 10% 10%;*/
+	/*background-color: gray;*/
+	position: absolute; 		
+	left: 50%; 
+	top: 0px;
+	/*top: 50%;*/
+	height: 700px;
+	width: 900px;  
+	margin-left: -450px; 		/* -((width/2) + left padding) = -900/2 = -450 */
+	/*margin-top: -350px;*/			/* the top margin is set to -((width/2) + left padding + left border) = -700/2 = -350 */
+	padding: 0px;  
+}
+
+#knoppenVeld{
+	position: relative;
+	float: left;
+	margin-left: 184px;
+	margin-top: 21px;
+	height: 34px;
+	width: 700px;
+	/*border: 1px solid black;*/
+}
+
+#vorigeoefbutton, #volgendeoefbutton, #startschermbutton, #stopbutton{
+	position: relative;
+	float: left;
+	margin-right: 20px;
+}
+
+#inleiding{
+	position: relative;
+	float: left;
+	margin-left: 170px;
+	width: 695px;
+	height: 205px;
+	/*border: 1px solid black;*/
+}
+
+#inleidendeTekst{
+	position: relative;
+	float: left;
+	margin-left: 14px;
+	width: 400px;
+	height: 170px;
+	/*border: 1px solid black;*/
+}
+
+#inleidingPlaatje{
+	position: relative;
+	float: right;
+	width: 254px;
+	height: 170px;
+	/*border: 1px solid red;*/
+}
+
+#startKnop{
+	position: relative;
+	float: left;
+	margin-left: 12px;
+	height: 30px;
+	width: 670px;
+	/*border: 1px solid black;*/
+}
+
+#vraagVeld{
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	width: 835px;
+	height: 42px;
+	/*border: 1px solid black;*/
+}
+
+#vraagTekst{
+	position: relative;
+	float: left;
+	width: 138px;
+	height: 24px;
+	background-color: rgb(255, 172, 0);
+}
+
+#vraagTextArea{
+	position: relative;
+	float: left;
+	width: 697px;
+	height: 42px;
+	background-color: rgb(0, 107, 51);
+}
+
+#devraag{
+	background-color: rgb(0, 107, 51);
+	width: 681px;
+	height: 35px;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;
+	border: none;
+	margin-left: 14px;
+	margin-top: 4px;
+	*margin-top: 1px;
+	line-height: 16px;
+	overflow: auto;
+}
+
+#woordenVeld{
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	margin-top: 8px;
+	width: 835px;
+	height: 24px;
+	/*border: 1px solid black;*/
+}
+
+#woordenTekst{
+	position: relative;
+	float: left;
+	width: 138px;
+	height: 24px;
+	background-color: rgb(255, 172, 0);
+}
+
+#woordenTextArea{
+	position: relative;
+	float: left;
+	width: 607px;
+	height: 24px;
+	background-color: rgb(0, 107, 51);
+}
+
+#dewoorden{
+	background-color: rgb(0, 107, 51);
+	width: 582px;
+	height: 18px;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;
+	border: none;
+	margin-left: 14px;
+	margin-top: 4px;
+	*margin-top: 1px;
+	line-height: 16px;
+	overflow: auto;
+}
+
+#diacritischeTekens{
+	position: relative;
+	float: right;
+	padding-top: 5px;
+	width: 90px;
+	height: 19px;
+	background-color: rgb(0, 107, 51);
+	/*border: 1px solid black;*/
+}
+
+
+#antwoordVeld{
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	margin-top: 8px;
+	width: 835px;
+	height: 24px;
+	/*border: 1px solid black;*/
+}
+
+#antwoordTekst{
+	position: relative;
+	float: left;
+	width: 138px;
+	height: 24px;
+	background-color: rgb(255, 172, 0);
+}
+
+#antwoordTextArea{
+	position: relative;
+	float: left;
+	width: 597px;
+	height: 24px;
+	background-color: white;
+}
+
+#hetantwoord{
+	background-color: white;
+	width: 579px;
+	height: 18px;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: black;
+	border: none;
+	margin-left: 14px;
+	margin-top: 4px;
+	*margin-top: 3px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#enterKnop{
+	position: relative;
+	float: left;
+	background-color: white;
+	width: 100px;
+	height: 24px;
+	/*border: 1px solid black;*/
+}
+
+#knopEtr{
+	position: relative;
+	float: right;
+	margin-right: 14px;
+	margin-top: 1px;
+}
+
+#feedbackVeld{
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	margin-top: 8px;
+	width: 835px;
+	height: 115px;
+	/*border: 1px solid black;*/
+}
+
+#feedbackTekst{
+	position: relative;
+	float: left;
+	width: 138px;
+	height: 24px;
+	background-color: rgb(255, 172, 0);
+}
+
+#feedbackTextArea{
+	position: relative;
+	float: left;
+	width: 697px;
+	height: 115px;
+	background-color: rgb(0, 107, 51);
+	border: none;
+}
+
+#defeedback{
+	background-color: rgb(0, 107, 51);
+	width: 681px;
+	height: 110px;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;
+	border: none;
+	margin-left: 14px;
+	margin-top: 4px;
+	*margin-top: 1px;
+	overflow: auto;
+}
+
+#resultatenVeld{
+	position: relative;
+	float: left;
+	margin-left: 32px;
+	margin-top: 8px;
+	width: 835px;
+	height: 178px;
+	/*border: 1px solid black;*/
+}
+
+#resultatenTekst{
+	position: relative;
+	float: left;
+	width: 138px;
+	height: 24px;
+	background-color: rgb(255, 172, 0);
+}
+
+#resultatenTextArea{
+	position: relative;
+	float: left;
+	width: 697px;
+	height: 194px;
+	background-color: rgb(0, 107, 51);
+}
+
+#deresultaten{
+	background-color: rgb(0, 107, 51);
+	width: 681px;
+	height: 180px;
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;
+	border: none;
+	margin-left: 14px;
+	margin-top: 4px;
+	*margin-top: 1px;
+	overflow: auto;
+}
+
+#inleidendeTekst h1{
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#inleidendeTekst p{
+	margin-top: 5px;
+}
+
+p{
+	font-size: 12px;
+}
+
+.kop p{
+	margin-left: 5px;
+	margin-top: 4px;
+}
+
+a {
+	font-family: Arial, Georgia, serif;
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+}
+
+input[type=text]:focus,
+input[type=password]:focus{
+	outline: 0 none;
+}
